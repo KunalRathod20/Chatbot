@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>AI Chatbot</title>
+	<link rel="icon" href="https://sylviapap.github.io/chatbot/bot.png"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+	<link href="../static/style.css" rel="stylesheet">
+	<style>
+	/* Modal Background */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+
+<body>
+
+	<div class="bottom">
+		
+
+		<div id="container" class="container">
+			<div id="chat" class="chat">
+				<div id="messages" class="messages"></div>
+				<div style="display: flex; width: 800px;">
+					<input id="input" type="text" placeholder="Say something..." autocomplete="off" autofocus="true" wrap="soft" speech-input/>
+					<button id="button"> <i class="fas fa-microphone"></i></button>
+					<button id="copyButton"> <i class="fas fa-copy"></i> </button>
+					<button id="playButton"><i class="fas fa-volume-up"></i></button>
+					<button onclick="window.location.href='{{ url_for( 'home') }}';"><i class="fas fa-images"></i></button>
+					<div id="copy-notification"></div>
+				</div>
+			</div>
+			<img src="https://sylviapap.github.io/chatbot/bot.png" alt="Robot cartoon" height="500vh">
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        Modal body..
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+		</div>
+	</div>
+	
+	
+
+	<footer style="background-color: white; color: black;">
+		<div class="footer">
+		</div>
+	</footer>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+	<script src="../static/script.js"></script>
+</body>
+</html>
